@@ -32,3 +32,11 @@ set sql_safe_updates = 0;
 update employee_payroll set gender= 'M' where name = "A" or name = "C";
 update employee_payroll set gender= 'F' where name = "B";
 
+# USE CASE 7
+select sum(salary) from employee_payroll;
+select avg(salary) from employee_payroll;
+select min(salary) from employee_payroll;
+select max(salary) from employee_payroll;
+select count(*) as male_count from employee_payroll where gender = 'M';
+select count(*) as female_count from employee_payroll where gender = 'F';
+
