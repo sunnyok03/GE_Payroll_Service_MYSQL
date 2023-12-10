@@ -26,4 +26,9 @@ select * from employee_payroll;
 select salary from employee_payroll where name = "B";
 select * from employee_payroll where (start_date between '2023-12-10' AND '2023-12-11');
 
+# USE CASE 6
+alter table employee_payroll add gender char after column_id;
+set sql_safe_updates = 0;
+update employee_payroll set gender= 'M' where name = "A" or name = "C";
+update employee_payroll set gender= 'F' where name = "B";
 
