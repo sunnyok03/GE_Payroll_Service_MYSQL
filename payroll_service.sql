@@ -40,3 +40,6 @@ select max(salary) from employee_payroll;
 select count(*) as male_count from employee_payroll where gender = 'M';
 select count(*) as female_count from employee_payroll where gender = 'F';
 
+# USE CASE 8
+alter table employee_payroll add phone varchar(20), add address varchar(200) default "L", add department varchar(200) not null;
+
