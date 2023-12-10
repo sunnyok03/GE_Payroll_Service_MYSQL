@@ -22,5 +22,8 @@ insert into employee_payroll (name,salary,start_date) values
 select database(); # shows current database
 select * from employee_payroll; 
 
+# USE CASE 5
+select salary from employee_payroll where name = "B";
+select * from employee_payroll where (start_date between '2023-12-10' AND '2023-12-11');
 
 
