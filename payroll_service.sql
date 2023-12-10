@@ -18,6 +18,9 @@ insert into employee_payroll (name,salary,start_date) values
 ("B",2000,"2023-12-10"),
 ("C",3000,"2023-12-11");
 
+# USE CASE 4
+select database(); # shows current database
+select * from employee_payroll; 
 
 
 
