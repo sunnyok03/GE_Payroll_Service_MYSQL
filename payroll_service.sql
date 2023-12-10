@@ -43,3 +43,6 @@ select count(*) as female_count from employee_payroll where gender = 'F';
 # USE CASE 8
 alter table employee_payroll add phone varchar(20), add address varchar(200) default "L", add department varchar(200) not null;
 
+# USE CASE 9
+alter table employee_payroll add basic_pay double, add deduction double, add taxable_pay double, add income_tax double, add net_pay double;
+
