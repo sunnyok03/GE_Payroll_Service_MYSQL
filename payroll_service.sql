@@ -46,3 +46,7 @@ alter table employee_payroll add phone varchar(20), add address varchar(200) def
 # USE CASE 9
 alter table employee_payroll add basic_pay double, add deduction double, add taxable_pay double, add income_tax double, add net_pay double;
 
+# USE CASE 10
+insert into employee_payroll (gender,name,salary,start_date,phone,address,department,basic_pay,deduction,taxable_pay,income_tax,net_pay) values ('F',"Terissa",50000,"2023-12-11",9191919191,"Hyd","sale",30000,10000,30000,5000,25000);
+insert into employee_payroll (gender,name,salary,start_date,phone,address,department,basic_pay,deduction,taxable_pay,income_tax,net_pay) values ('F',"Terissa",50000,"2023-12-11",9191919191,"Hyd","marketing",30000,10000,30000,5000,25000);
+
