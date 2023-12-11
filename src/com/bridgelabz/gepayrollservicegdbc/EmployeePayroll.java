@@ -7,13 +7,14 @@ import java.time.LocalDate;
  */
 public class EmployeePayroll {
     private int empId;
+    private char gender;
     private String name;
+    private double salary;
     private String phoneNumber;
     private String address;
-    private char gender;
     private LocalDate startDate;
-    private int compId;
-    private int deptId;
+    private double basicPay;
+    private String dept;
 
    /*
    @desc: getter method of employee id
@@ -80,6 +81,22 @@ public class EmployeePayroll {
     }
 
     /*
+    @desc: getter method of employee salary
+    @return : double (salary of the employee)
+  */
+    public double getSalary(){
+        return salary;
+    }
+
+    /*
+     @desc: setter method of employee salary
+     @params: double (salary of the employee)
+    */
+    public void setSalary(double salary){
+        this.salary = salary;
+    }
+
+    /*
      @desc: getter method of employee gender
      @return : Char (gender of the employee)
       */
@@ -112,34 +129,49 @@ public class EmployeePayroll {
     }
 
     /*
-     @desc: getter method of employee deptId
-     @return : int (deptId of the employee)
+     @desc: getter method of employee dept
+     @return : String (dept of the employee)
       */
-    public int getDeptId() {
-        return deptId;
+    public String getDept() {
+        return dept;
     }
 
     /*
-        @desc: setter method of employee deptId
-        @params: int (deptId of the employee)
+        @desc: setter method of employee dept
+        @params: String (dept of the employee)
        */
-    public void setDeptId(int deptId) {
-        this.deptId = deptId;
+    public void setDept(String dept) {
+        this.dept = dept;
     }
 
     /*
-     @desc: getter method of employee company ID
-     @return : int (compId of the employee)
+      @desc: getter method of employee company basicPay
+      @params: double (basicPay of the employee)
       */
-    public int getCompId() {
-        return compId;
+    public double getBasicPay(){
+        return basicPay;
     }
 
     /*
-     @desc: setter method of employee company ID
-     @params: int (compId of the employee)
-     */
-    public void setCompId(int compId) {
-        this.compId = compId;
+  @desc: setter method of employee company basicPay
+  @params: double (basicPay of the employee)
+  */
+    public void setBasicPay(double basicPay){
+        this.basicPay = basicPay;
+    }
+
+    @Override
+    public String toString() {
+        return "EmployeePayroll{" +
+                "empId=" + empId +
+                ", gender=" + gender +
+                ", name='" + name + '\'' +
+                ", salary=" + salary +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", address='" + address + '\'' +
+                ", startDate=" + startDate +
+                ", basicPay=" + basicPay +
+                ", dept='" + dept + '\'' +
+                '}';
     }
 }
