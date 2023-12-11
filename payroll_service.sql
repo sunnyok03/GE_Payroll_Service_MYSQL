@@ -51,6 +51,8 @@ insert into employee_payroll (gender,name,salary,start_date,phone,address,depart
 insert into employee_payroll (gender,name,salary,start_date,phone,address,department,basic_pay,deduction,taxable_pay,income_tax,net_pay) values ('F',"Terissa",50000,"2023-12-11",9191919191,"Hyd","marketing",30000,10000,30000,5000,25000);
 
 # USE CASE 10 (ER Diagram)
+SET FOREIGN_KEY_CHECKS=0;
+
 create table Company(
 	comp_id int primary key,
     comp_name varchar(100)
@@ -64,22 +66,47 @@ create table Department(
 );
 
 insert into Department(dept_id,dept_name) values (1,"Sales");
-insert into Department(dept_id,dept_name) values (2,"Marketing");
+insert into Department values (2,"Marketing");
+insert into Department values (3,"IT");
 
 create table Employee(
-    EmployeeID int primary key auto_increment,
+    EmployeeID int primary key,
     EmployeeName varchar(100),
     PhoneNumber varchar(20),
     Address varchar(200),
     Gender char(1),
     StartDate date,
-    dept_id int,
     comp_id int,
-    FOREIGN KEY (dept_id) REFERENCES Department(dept_id),
-    FOREIGN KEY (comp_id) REFERENCES Company(comp_id)
+    foreign key(comp_id) references Company(comp_id)
 );
 
-insert into Employee values (1,"Terissa",9191919191,"Hyd",'F',"2023-12-11",1,1);
+insert into Employee values (1,"Terissa",9191919191,"Hyd",'F',"2023-12-11",1);
+insert into Employee values (2,"Sunny",9292929292,"Gaya",'M',"2023-12-10",1);
+insert into Employee values(3,"Rahul",9393939393,"Lnw",'M',"2023-12-09",1);
+
+create table EmployeeDepartment(
+	EmployeeID int,
+    dept_id int
+);
+
+insert into EmployeeDepartment values (1,1);
+insert into EmployeeDepartment values (1,2);
+insert into EmployeeDepartment values (2,3);
+insert into EmployeeDepartment values (3,3);
 
 
+create table Payroll (
+    payroll_id int primary key auto_increment,
+    BasicPay double,
+    Deduction double,
+    TaxablePay double,
+    IncomeTax double,
+    NetPay double,
+	EmployeeID int,
+    foreign key (EmployeeID) references Employee(EmployeeID)
+);
+
+insert into Payroll values (1,50000,5000,45000,5000,40000,1);
+insert into Payroll values (2,60000,5000,55000,5000,50000,2);
+insert into Payroll values (3,80000,5000,75000,5000,70000,3);
 
