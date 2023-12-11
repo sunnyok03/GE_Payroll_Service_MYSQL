@@ -118,3 +118,22 @@ select max(BasicPay) as max_salary from Payroll;
 select count(*) as male_count from Employee where gender = 'M';
 select count(*) as female_count from Employee where gender = 'F';
 select e.gender, avg(BasicPay) as avg_salary from employee e JOIN Payroll p on p.EmployeeID = e.EmployeeID group by gender;
+
+# USE CASE 12
+select * from employee;
+select * from company;
+select * from department;
+select * from employeedepartment;
+select * from payroll;
+
+select 
+	e.EmployeeID,
+	e.EmployeeName,
+    e.Gender,
+    c.comp_name
+from
+	Employee e
+join
+	Company c on c.comp_id = e.comp_id;
+    
+	
