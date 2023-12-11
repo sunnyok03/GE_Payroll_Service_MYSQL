@@ -110,3 +110,11 @@ insert into Payroll values (1,50000,5000,45000,5000,40000,1);
 insert into Payroll values (2,60000,5000,55000,5000,50000,2);
 insert into Payroll values (3,80000,5000,75000,5000,70000,3);
 
+# USE CASE 11
+select sum(BasicPay) as total_salary from Payroll;
+select avg(BasicPay) as avg_salary from Payroll;
+select min(BasicPay) as min_salary from Payroll;
+select max(BasicPay) as max_salary from Payroll;
+select count(*) as male_count from Employee where gender = 'M';
+select count(*) as female_count from Employee where gender = 'F';
+select e.gender, avg(BasicPay) as avg_salary from employee e JOIN Payroll p on p.EmployeeID = e.EmployeeID group by gender;
