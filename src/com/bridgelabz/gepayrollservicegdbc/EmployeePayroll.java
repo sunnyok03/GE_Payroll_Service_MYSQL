@@ -160,6 +160,10 @@ public class EmployeePayroll {
         this.basicPay = basicPay;
     }
 
+    /*
+    @desc: convert object to string
+    @return : return object in string format
+     */
     @Override
     public String toString() {
         return "EmployeePayroll{" +
