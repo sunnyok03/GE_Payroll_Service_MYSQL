@@ -9,7 +9,6 @@ public class EmployeePayroll {
     private int empId;
     private char gender;
     private String name;
-    private double salary;
     private String phoneNumber;
     private String address;
     private LocalDate startDate;
@@ -78,22 +77,6 @@ public class EmployeePayroll {
       */
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    /*
-    @desc: getter method of employee salary
-    @return : double (salary of the employee)
-  */
-    public double getSalary(){
-        return salary;
-    }
-
-    /*
-     @desc: setter method of employee salary
-     @params: double (salary of the employee)
-    */
-    public void setSalary(double salary){
-        this.salary = salary;
     }
 
     /*
@@ -170,7 +153,6 @@ public class EmployeePayroll {
                 "empId=" + empId +
                 ", gender=" + gender +
                 ", name='" + name + '\'' +
-                ", salary=" + salary +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", address='" + address + '\'' +
                 ", startDate=" + startDate +

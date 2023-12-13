@@ -135,5 +135,3 @@ from
 	Employee e
 join
 	Company c on c.comp_id = e.comp_id;
-    
-	

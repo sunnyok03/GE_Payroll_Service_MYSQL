@@ -47,7 +47,7 @@ public class DatabaseConnection {
     public List<EmployeePayroll> retrieveAllData(){
         List<EmployeePayroll> list = new ArrayList<>();
         try{
-            String query = "select * from employee_payroll";
+            String query = "SELECT e.EmployeeID as column_id, e.EmployeeName as name, e.Gender as gender, e.PhoneNumber as phone, e.Address as address, e.StartDate as start_date, p.BasicPay as basic_pay, d.dept_name as department FROM Employee e JOIN payroll p ON p.EmployeeID = e.EmployeeID JOIN employeedepartment ed ON ed.EmployeeID = e.EmployeeID JOIN department d ON d.dept_id = ed.dept_id";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -71,7 +71,6 @@ public class DatabaseConnection {
         employeePayroll.setEmpId(resultSet.getInt("column_id"));
         employeePayroll.setGender(resultSet.getString("gender").charAt(0));
         employeePayroll.setName(resultSet.getString("name"));
-        employeePayroll.setSalary(resultSet.getDouble("salary"));
         employeePayroll.setStartDate(resultSet.getDate("start_date").toLocalDate());
         employeePayroll.setPhoneNumber(resultSet.getString("phone"));
         employeePayroll.setAddress(resultSet.getString("address"));
@@ -95,7 +94,7 @@ public class DatabaseConnection {
  */
     public void updateBasicPay(double basicPay, String name){
         try{
-            String query = "update employee_payroll set basic_pay = ? where name = ?";
+            String query = "UPDATE payroll p JOIN Employee e ON p.EmployeeID = e.EmployeeID SET p.basicPay = ? WHERE e.EmployeeName = ?";
             try(PreparedStatement preparedStatement = connection.prepareStatement(query)){
                 preparedStatement.setDouble(1,basicPay);
                 preparedStatement.setString(2,name);
@@ -118,7 +117,7 @@ public class DatabaseConnection {
         List<EmployeePayroll> list = new ArrayList<>();
 
         try{
-            String query = "select * from employee_payroll where start_date between ? and ?";
+            String query = "SELECT e.EmployeeID as column_id, e.EmployeeName as name, e.Gender as gender, e.PhoneNumber as phone, e.Address as address, e.StartDate as start_date, p.BasicPay as basic_pay, d.dept_name as department FROM Employee e JOIN payroll p ON p.EmployeeID = e.EmployeeID JOIN employeedepartment ed ON ed.EmployeeID = e.EmployeeID JOIN department d ON d.dept_id = ed.dept_id where StartDate BETWEEN ? AND ?";
             try(PreparedStatement preparedStatement = connection.prepareStatement(query)){
                 preparedStatement.setDate(1,Date.valueOf(startDate));
                 preparedStatement.setDate(2,Date.valueOf(endDate));
